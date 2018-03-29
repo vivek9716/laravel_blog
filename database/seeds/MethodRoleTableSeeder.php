@@ -190,6 +190,38 @@ class MethodRoleTableSeeder extends Seeder {
             , [
                 'role_id' => 1,
                 'method_id' => 71
+            ],
+            [
+                'role_id' => 1,
+                'method_id' => 72
+            ], [
+                'role_id' => 1,
+                'method_id' => 73
+            ]
+            , [
+                'role_id' => 1,
+                'method_id' => 74
+            ],
+            [
+                'role_id' => 1,
+                'method_id' => 75
+            ]
+            , [
+                'role_id' => 1,
+                'method_id' => 76
+            ]
+            , [
+                'role_id' => 1,
+                'method_id' => 77
+            ],
+            [
+                'role_id' => 1,
+                'method_id' => 78
+            ]
+            ,
+            [
+                'role_id' => 1,
+                'method_id' => 79
             ]
         ));
     }

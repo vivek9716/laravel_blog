@@ -26,7 +26,7 @@ class ContactEmail extends Mailable {
     public function build() {
         //, $this->contact['name']
         return $this->from(config('mail.from.address'))->to($this->contact['email'])
-                        ->subject('Blog Feedback Receive.')
+                        ->subject('Gaana Blog Feedback Receive.')
                         ->view('user.mail.contact');
         //return $this->view('view.name');
     }

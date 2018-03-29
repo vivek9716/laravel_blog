@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MethodsTableSeeder::class);        
         $this->call(MethodRoleTableSeeder::class);
         $this->call(PostsTableDataSeeder::class);
-        $this->call(CategoriesTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);        
     }
 }

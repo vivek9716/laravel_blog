@@ -15,8 +15,8 @@ class ContactController extends Controller {
         $data['name'] = 'Test Test';
         $mail = \Mail::send('user.mail.welcome', $data, function($message) use ($data)
         {
-            $message->from('no-reply@site.com', "Blog");
-            $message->subject("Welcome to Blog");
+            $message->from('no-reply@site.com', "Gaana Blog");
+            $message->subject("Welcome to Gaana");
             $message->to($data['email']);
         });
         dd($mail);

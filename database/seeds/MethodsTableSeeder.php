@@ -483,8 +483,72 @@ class MethodsTableSeeder extends Seeder {
                 'label' => 'index',
                 'created_at' => '2018-03-22 18:30:00',
                 'updated_at' => '2018-03-22 18:30:00'
+            ],
+            [
+                'id' => 72,
+                'page_id' => 2,
+                'name' => 'getPostData',
+                'label' => 'getData',
+                'created_at' => '2018-03-22 18:30:00',
+                'updated_at' => '2018-03-22 18:30:00'
+            ],
+            [
+                'id' => 73,
+                'page_id' => 7,
+                'name' => 'getData',
+                'label' => 'getData',
+                'created_at' => '2018-03-22 18:30:00',
+                'updated_at' => '2018-03-22 18:30:00'
+            ],
+            [
+                'id' => 74,
+                'page_id' => 6,
+                'name' => 'getData',
+                'label' => 'getData',
+                'created_at' => '2018-03-22 18:30:00',
+                'updated_at' => '2018-03-22 18:30:00'
+            ],
+            [
+                'id' => 75,
+                'page_id' => 12,
+                'name' => 'getData',
+                'label' => 'getData',
+                'created_at' => '2018-03-22 18:30:00',
+                'updated_at' => '2018-03-22 18:30:00'
+            ]
+			,
+            [
+                'id' => 76,
+                'page_id' => 1,
+                'name' => 'getData',
+                'label' => 'getData',
+                'created_at' => '2018-03-22 18:30:00',
+                'updated_at' => '2018-03-22 18:30:00'
+            ],
+            [
+                'id' => 77,
+                'page_id' => 4,
+                'name' => 'getData',
+                'label' => 'getData',
+                'created_at' => '2018-03-22 18:30:00',
+                'updated_at' => '2018-03-22 18:30:00'
+            ],
+            [
+                'id' => 78,
+                'page_id' => 8,
+                'name' => 'getData',
+                'label' => 'getData',
+                'created_at' => '2018-03-22 18:30:00',
+                'updated_at' => '2018-03-22 18:30:00'
+            ],
+            [
+                'id' => 79,
+                'page_id' => 9,
+                'name' => 'getData',
+                'label' => 'getData',
+                'created_at' => '2018-03-22 18:30:00',
+                'updated_at' => '2018-03-22 18:30:00'
             ]
         ));
     }
-
 }
