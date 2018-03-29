@@ -1,6 +1,6 @@
 <template>
     <div class="post-preview">
-        <a href="slug">
+        <a :href="'/post/'+slug">
             <h2 class="post-title">
                 {{ title }}
             </h2>
@@ -25,7 +25,7 @@
             }
         },
         props:[
-            'title','subtitle','created_at','postId','login','likes'
+            'title','subtitle','created_at','post-id','login','likes','slug'
         ],
         created(){
             this.likeCount = this.likes

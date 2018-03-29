@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    @include('user/layouts/head')
-</head>
+    <head>
+        @include('user/layouts/head')
+    </head>
 
-<body>
+    <body>
 
-   @include('user/layouts/header')
-        @section('main-content')
-            @show
+        @include('user/layouts/header')
+        <div class="container">
+            <div class="row">
+                @section('main-content')
+                @show
+                @include('user/layouts/sidebar')
+            </div>
+        </div>        
+        @include('user/layouts/footer')
 
-  @include('user/layouts/footer')
-
-</body>
+    </body>
 
 </html>

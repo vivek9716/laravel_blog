@@ -6,13 +6,11 @@
 	  <!-- Content Header (Page header) -->
 	  <section class="content-header">
 	    <h1>
-	      Text Editors
-	      <small>Advanced form element</small>
+	      Edit Category	      
 	    </h1>
 	    <ol class="breadcrumb">
-	      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-	      <li><a href="#">Forms</a></li>
-	      <li class="active">Editors</li>
+	      <li><a href="{{route('admin.home')}}"><i class="fa fa-dashboard"></i> Home</a></li>	     
+	      <li class="active">Edit Category</li>
 	    </ol>
 	  </section>
 
@@ -22,10 +20,7 @@
 	      <div class="col-md-12">
 	        <!-- general form elements -->
 	        <div class="box box-primary">
-	          <div class="box-header with-border">
-	            <h3 class="box-title">Titles</h3>
-	          </div>
-	    		@include('includes.messages')      
+	          @include('includes.messages')      
 	          <!-- /.box-header -->
 	          <!-- form start -->
 	          <form role="form" action="{{ route('category.update',$category->id) }}" method="post">
@@ -34,12 +29,12 @@
 	            <div class="box-body">
 	            <div class="col-lg-offset-3 col-lg-6">
 	              <div class="form-group">
-	                <label for="name">Category title</label>
+	                <label for="name">Title</label>
 	                <input type="text" class="form-control" id="name" name="name" placeholder="Category Title" value="{{ $category->name }}">
 	              </div>
 
 	              <div class="form-group">
-	                <label for="slug">Category Slug</label>
+	                <label for="slug">Slug</label>
 	                <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="{{ $category->slug }}">
 	              </div>
 

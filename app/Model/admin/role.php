@@ -10,4 +10,10 @@ class role extends Model
     {
     	return $this->belongsToMany('App\Model\admin\Permission');
     }
+    
+    public function methods()
+    {
+    	return $this->belongsToMany('App\Model\admin\Method');
+    }
+    
 }

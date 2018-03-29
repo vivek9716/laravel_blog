@@ -7,10 +7,9 @@
     <section class="content-header">
       @include('admin.layouts.pagehead')
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">Editors</li>
-      </ol>
+            <li><a href="{{route('admin.home')}}"><i class="fa fa-dashboard"></i> Home</a></li>            
+            <li class="active">Add User</li>
+        </ol>
     </section>
 
     <!-- Main content -->
@@ -20,13 +19,13 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Admin</h3>
+              <h3 class="box-title">Add User</h3>
             </div>
 
             @include('includes.messages')
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{ route('user.store') }}" method="post">
+            <form role="form" action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
               <div class="box-body">
               <div class="col-lg-offset-3 col-lg-6">
@@ -54,7 +53,10 @@
                   <label for="password_confirmation">Confirm Passowrd</label>
                   <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="confirm passowrd">
                 </div>
-
+                <div class="form-group">
+                  <label for="profileImage">Profile image</label>
+                  <input type="file" id="profileImage" name="profile_image">                  
+                </div>  
                 <div class="form-group">
                   <label for="confirm_passowrd">Status</label>
                   <div class="checkbox">

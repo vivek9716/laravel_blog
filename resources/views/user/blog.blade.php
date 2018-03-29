@@ -1,44 +1,70 @@
 @extends('user/app')
-
-@section('bg-img',asset('user/img/home-bg.jpg'))
-@section('title','Bitfumes Blog')
-@section('sub-heading','Learn Together and Grow Together')
 @section('head')
-<meta name="csrf-token" content="{{ csrf_token() }}">
-	<style>
-		.fa-thumbs-up:hover{
-			color:#f41115;
-		}
-	</style>
+<style>
+    .fa-thumbs-up:hover{
+        color:#f41115;
+    }
+</style>
 @endsection
 @section('main-content')
-	<!-- Main Content -->
-	<div class="container">
-	    <div class="row" id="app">
-	        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-	            <posts 
-	            v-for='value in blog'
-	            :title=value.title
-	            :subtitle=value.subtitle
-	            :created_at=value.created_at
-	            :key=value.index
-	            :post-id = value.id
-	            login = "{{ Auth::check() }}"
-	            :likes = value.likes.length
-	            ></posts>
-	            <hr>
-	            <!-- Pager -->
-	            <ul class="pager">
-	                <li class="next">
-	                	{{ $posts->links() }}
-	                </li>
-	            </ul>
-	        </div>
-	    </div>
-	</div>
-
-	<hr>
+<!-- Blog Entries Column -->
+<div class="col-md-8">
+    <h1 class="my-4">Welcome to Gaana Blog
+        <small>Home</small>
+    </h1>
+    @foreach ($posts as $post)    
+    <!-- Blog Post -->
+    <div class="card mb-4">
+        <img class="card-img-top" src="{{ asset('/post_image/' . $post->image) }}" alt="{{ $post->title }}" title="{{ $post->title }}">
+        <div class="card-body">
+            <h2 class="card-title">{{ $post->title }}</h2>
+            <p class="card-text">{!! htmlspecialchars_decode(preg_replace('/\s+?(\S+)?$/', '', substr($post->body, 0, 300))) !!}</p>
+            <a href="{{ URL::to('post/' . $post->slug) }}" class="btn btn-primary">Read More &rarr;</a>
+        </div>
+        <div class="card-footer text-muted">
+            Posted on {{ $post->created_at }} by
+            <a href="https://gaana.com/" target="_blank">Gaana.com</a>
+            <span class="likeIt" data-postid="{{ $post->id }}">
+                <small id="likeit{{ $post->id }}">{{ count($post->likes) }}</small>
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+            </span>
+        </div>
+    </div>
+    @endforeach
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center mb-4">
+        {{ $posts->links() }}
+    </ul>
+</div>
 @endsection
 @section('footer')
-	<script src="{{ asset('js/app.js') }}"></script>
+<script type="text/javascript">
+    function likeIt(postId) {
+        var isLoggedIn = "<?php echo Auth::check() ?>";
+        if (isLoggedIn) {
+            $.post('/saveLike', {
+                id: postId,
+                _token: "{{ csrf_token() }}"
+            }, function (response) {
+                console.log(response);
+                var previousLike = parseInt($('#likeit' + postId).text());
+                if (response === 'deleted') {
+                    previousLike -= 1;
+                } else {
+                    previousLike += 1;
+                }
+                $('#likeit' + postId).html(previousLike);
+            });
+        } else {
+            window.location = "{{ URL::to('login') }}";
+        }
+    }
+
+    $(document).on('click', '.likeIt', function (e) {
+        e.preventDefault();
+        var postId = $(this).attr('data-postid');
+        likeIt(postId);
+    });
+
+</script>
 @endsection
